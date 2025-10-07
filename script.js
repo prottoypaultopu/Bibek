@@ -256,13 +256,13 @@ observeElements.forEach(el => {
       "contact.name":"Name","contact.email":"Email","contact.subject":"Subject","contact.message":"Message",
       "contact.name_ph":"Your full name","contact.email_ph":"your.email@example.com","contact.subject_ph":"How can we help you?","contact.message_ph":"Tell us more...",
       "contact.send":"Send Message",
-      "contact.visit.title":"Visit Us","contact.visit.addr":"123 Faith Street\nCommunity City, ST 12345",
-      "contact.call.title":"Call Us","contact.call.num":"(123) 456-7890",
-      "contact.email.title":"Email Us","contact.email.addr":"info@faithcenter.org",
+      "contact.visit.title":"Visit Us","contact.visit.addr":"Ramakrishna Mission /n Dhaka,Bangladesh",
+      "contact.call.title":"Call Us","contact.call.num":"xxxxxxxxxxxx",
+      "contact.email.title":"Email Us","contact.email.addr":"xxxxxxxxxxxxxxx",
       "contact.hours.title":"Office Hours","contact.hours.value":"Monday - Friday\n9:00 AM - 5:00 PM",
       "footer.brand":"Faith Community Center","footer.tag":"Growing together in faith and love",
       "footer.quick":"Quick Links","footer.getinvolved":"Get Involved","footer.connect":"Connect",
-      "footer.copyright.name":"Faith Community Center","footer.copyright":"All rights reserved.","footer.built":"Built with love and faith."
+      "footer.copyright.name":"Vivek","footer.copyright":"All rights reserved.","footer.built":"Built with love and faith."
     },
     bn: {
       "site.title":"বিবেক",
@@ -371,4 +371,5 @@ observeElements.forEach(el => {
   }};
 
   document.addEventListener("DOMContentLoaded", setupSwitcher);
+
 })();
