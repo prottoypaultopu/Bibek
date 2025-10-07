@@ -1,0 +1,61 @@
+{
+  "hero": {
+    "backgroundImage": "ttt.jpg",
+    "title": "VIVEK",
+    "subtitle": "Vivekananda Vedanta Centre \n Born to be good, to do good."
+  },
+  "meetings": [
+    
+    {
+      "title": "Football",
+      "title_bn": "ফুটবল",
+      "time": "12:25 am",
+      "time_bn": "১২;২৫ সকাল",
+      "description": "we will discuss about football",
+      "description_bn": "ফুটবল নিয়ে আলোচনা করব"
+    }
+  ],
+  
+  "events": [
+    {
+     "date": "18 February, 2026",
+      "date_bn": "১৮ ফেব্রুয়ারি, ২০২৬",
+      "title": "Birthday Of Sri Ramakrishna",
+      "title_bn": "ঠাকুরের জন্মদিন",
+      "description": "We will make a great function ",
+      "description_bn": "বৃহত্তর পরিসরে জন্মদিনের আয়োজন হবে।"
+    },
+    {
+
+
+      "date": "12 january, 2026",
+      "date_bn": "১২ জানুয়ারি,২০২৬",
+      "title": "Birthday of swamiji",
+      "title_bn": "স্বামীজির জন্মদিন",
+      "description": "We will make a great function ",
+      "description_bn": "খুবই সুন্দর একটি অনুষ্ঠান হবে।"
+    }
+  ],
+  "gallery": [
+    {
+      "image": "images/1.jpg",
+      "title": "Thakur",
+      "title_bn": "ঠাকুর"
+    },
+    {
+      "image": "images/2.jpg",
+      "title": "Thakur Ma",
+      "title_bn": "ঠাকুর মা"
+    },
+    {
+      "image": "images/3.jpg",
+      "title": "Mission",
+      "title_bn": "রবিবারের সেবা"
+    },
+    {
+    "image": "images/3.jpg",
+      "title": "Swamiji",
+      "title_bn": "রবিবারের সেবা"
+    }
+  ]
+}

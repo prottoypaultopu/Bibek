@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-i18n="site.title">Faith Community Center</title>
+  <meta name="description" content="Faith Community Center – worship, fellowship, service, and community programs. Join us in faith and love." />
+  <meta name="theme-color" content="#667eea" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <nav class="nav" aria-label="Primary">
+      <button class="nav__toggle" aria-controls="primary-menu" aria-expanded="false">
+        <span class="nav__hamburger" aria-hidden="true"></span>
+      </button>
+
+      <ul id="primary-menu" class="nav__list">
+        <li class="nav__item"><a class="nav__link" href="#home" data-i18n="nav.home">Home</a></li>
+        <li class="nav__item"><a class="nav__link" href="#about" data-i18n="nav.about">About</a></li>
+        <li class="nav__item"><a class="nav__link" href="#meetings" data-i18n="nav.meetings">Meetings</a></li>
+        <li class="nav__item"><a class="nav__link" href="#events" data-i18n="nav.events">Events</a></li>
+        <li class="nav__item"><a class="nav__link" href="#scholarship" data-i18n="nav.scholarship">Scholarship</a></li>
+        <li class="nav__item"><a class="nav__link" href="#gallery" data-i18n="nav.gallery">Gallery</a></li>
+        <li class="nav__item"><a class="nav__link" href="#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+
+      <!-- Language Switcher (no feature changes; lightweight enhancement) -->
+      <div class="lang-switch" aria-label="Language switcher">
+        <select id="lang" aria-label="Language">
+          <option value="en">English</option>
+          <option value="bn">বাংলা</option>
+        </select>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <h1 data-i18n="hero.title">Welcome to Faith Community Center</h1>
+      <p data-i18n="hero.subtitle">A place where faith grows, hope flourishes, and love transforms lives. Join us in building a stronger community together.</p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <h2 data-i18n="about.heading">About Us</h2>
+      <p class="lead" data-i18n="about.lead">
+        Faith Community Center is dedicated to nurturing spiritual growth, fostering meaningful connections, 
+        and serving our community with compassion and purpose.
+      </p>
+      <div class="about-content">
+        <div class="goal-card">
+          <h3 data-i18n="about.worship.title">Worship Together</h3>
+          <p data-i18n="about.worship.body">
+            Experience uplifting worship services that inspire and strengthen your faith. 
+            Our community gathers to celebrate, pray, and grow closer to God and one another.
+          </p>
+        </div>
+        <div class="goal-card">
+          <h3 data-i18n="about.fellowship.title">Fellowship & Growth</h3>
+          <p data-i18n="about.fellowship.body">
+            Build lasting relationships through small groups, Bible studies, and community events. 
+            We believe in walking together on our spiritual journey.
+          </p>
+        </div>
+        <div class="goal-card">
+          <h3 data-i18n="about.service.title">Serve with Love</h3>
+          <p data-i18n="about.service.body">
+            Make a difference in our community through outreach programs, volunteer opportunities, 
+            and acts of compassion that reflect God's love.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Meetings Section -->
+    <section id="meetings">
+      <h2 data-i18n="meetings.heading">Our Meetings</h2>
+      <div class="meeting-info">
+        <div class="meeting-item">
+          <h3 data-i18n="meetings.sun.title">Sunday Worship Service</h3>
+          <p><strong data-i18n="label.time">Time:</strong> <span data-i18n="meetings.sun.time">10:00 AM - 12:00 PM</span></p>
+          <p data-i18n="meetings.sun.body">Join us for our main worship service with inspiring messages, uplifting music, and fellowship.</p>
+        </div>
+        <div class="meeting-item">
+          <h3 data-i18n="meetings.wed.title">Wednesday Bible Study</h3>
+          <p><strong data-i18n="label.time">Time:</strong> <span data-i18n="meetings.wed.time">7:00 PM - 8:30 PM</span></p>
+          <p data-i18n="meetings.wed.body">Dive deeper into God's Word with our midweek Bible study. All ages welcome.</p>
+        </div>
+        <div class="meeting-item">
+          <h3 data-i18n="meetings.fri.title">Friday Youth Group</h3>
+          <p><strong data-i18n="label.time">Time:</strong> <span data-i18n="meetings.fri.time">6:00 PM - 8:00 PM</span></p>
+          <p data-i18n="meetings.fri.body">A dynamic gathering for young people to connect, grow in faith, and have fun together.</p>
+        </div>
+        <div class="meeting-item">
+          <h3 data-i18n="meetings.sat.title">Saturday Prayer Meeting</h3>
+          <p><strong data-i18n="label.time">Time:</strong> <span data-i18n="meetings.sat.time">8:00 AM - 9:00 AM</span></p>
+          <p data-i18n="meetings.sat.body">Start your weekend with focused prayer and intercession for our community and world.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events">
+      <h2 data-i18n="events.heading">Upcoming Events</h2>
+      <div class="events-grid">
+        <div class="event-card">
+          <div class="event-date" data-i18n="events.1.date">October 15, 2025</div>
+          <div class="event-details">
+            <h3 data-i18n="events.1.title">Community Outreach Day</h3>
+            <p data-i18n="events.1.body">Join us for a day of serving our community through food distribution, neighborhood cleanup, and visiting local care facilities.</p>
+          </div>
+        </div>
+        <div class="event-card">
+          <div class="event-date" data-i18n="events.2.date">October 25, 2025</div>
+          <div class="event-details">
+            <h3 data-i18n="events.2.title">Fall Harvest Festival</h3>
+            <p data-i18n="events.2.body">Celebrate the season with games, food, music, and fellowship. A family-friendly event for all ages!</p>
+          </div>
+        </div>
+        <div class="event-card">
+          <div class="event-date" data-i18n="events.3.date">November 8, 2025</div>
+          <div class="event-details">
+            <h3 data-i18n="events.3.title">Leadership Conference</h3>
+            <p data-i18n="events.3.body">A special gathering for ministry leaders and volunteers to be equipped, encouraged, and empowered.</p>
+          </div>
+        </div>
+        <div class="event-card">
+          <div class="event-date" data-i18n="events.4.date">November 22, 2025</div>
+          <div class="event-details">
+            <h3 data-i18n="events.4.title">Thanksgiving Service</h3>
+            <p data-i18n="events.4.body">Come together as a community to give thanks and celebrate God's blessings in our lives.</p>
+          </div>
+        </div>
+        <div class="event-card">
+          <div class="event-date" data-i18n="events.5.date">December 10, 2025</div>
+          <div class="event-details">
+            <h3 data-i18n="events.5.title">Christmas Musical</h3>
+            <p data-i18n="events.5.body">Experience the joy of the season through music, drama, and the timeless story of Christ's birth.</p>
+          </div>
+        </div>
+        <div class="event-card">
+          <div class="event-date" data-i18n="events.6.date">December 24, 2025</div>
+          <div class="event-details">
+            <h3 data-i18n="events.6.title">Christmas Eve Service</h3>
+            <p data-i18n="events.6.body">Join us for a special candlelight service celebrating the birth of our Savior.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scholarship Section -->
+    <section id="scholarship">
+      <h2 data-i18n="scholarship.heading">Scholarship Program</h2>
+      <div class="scholarship-content">
+        <h3 data-i18n="scholarship.subhead">Empowering Future Leaders</h3>
+        <p data-i18n="scholarship.p1">
+          Our scholarship program supports promising students in our community who demonstrate 
+          academic excellence, leadership potential, and a commitment to service.
+        </p>
+        <p><strong data-i18n="scholarship.amount.label">Award Amount:</strong> <span data-i18n="scholarship.amount.value">Up to $5,000 per academic year</span></p>
+        <p><strong data-i18n="scholarship.elig.label">Eligibility:</strong> <span data-i18n="scholarship.elig.value">High school seniors and current college students who are active 
+          members of our faith community and maintain a minimum 3.0 GPA.</span></p>
+        <p><strong data-i18n="scholarship.deadline.label">Application Deadline:</strong> <span data-i18n="scholarship.deadline.value">March 31, 2026</span></p>
+        <button class="btn apply-btn" data-i18n="scholarship.apply" onclick="alert(window.__i18n.t('scholarship.alert'))">Apply Now</button>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+      <h2 data-i18n="gallery.heading">Gallery</h2>
+      <div class="gallery">
+        <div class="gallery-item" data-i18n="gallery.items.1">Sunday Service</div>
+        <div class="gallery-item" data-i18n="gallery.items.2">Youth Group</div>
+        <div class="gallery-item" data-i18n="gallery.items.3">Community Outreach</div>
+        <div class="gallery-item" data-i18n="gallery.items.4">Bible Study</div>
+        <div class="gallery-item" data-i18n="gallery.items.5">Worship Team</div>
+        <div class="gallery-item" data-i18n="gallery.items.6">Children's Ministry</div>
+        <div class="gallery-item" data-i18n="gallery.items.7">Prayer Meeting</div>
+        <div class="gallery-item" data-i18n="gallery.items.8">Fellowship Dinner</div>
+      </div>
+      <p class="muted" data-i18n="gallery.note">Photo gallery coming soon. Check back for images from our events and services.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2 data-i18n="contact.heading">Contact Us</h2>
+      <div class="contact-wrapper">
+        <div class="contact-form-container">
+          <form class="contact-form">
+            <div class="form-group">
+              <label for="name" data-i18n="contact.name">Name</label>
+              <input type="text" id="name" name="name" required placeholder="Your full name" data-i18n-placeholder="contact.name_ph" />
+            </div>
+            <div class="form-group">
+              <label for="email" data-i18n="contact.email">Email</label>
+              <input type="email" id="email" name="email" required placeholder="your.email@example.com" data-i18n-placeholder="contact.email_ph" />
+            </div>
+            <div class="form-group">
+              <label for="subject" data-i18n="contact.subject">Subject</label>
+              <input type="text" id="subject" name="subject" required placeholder="How can we help you?" data-i18n-placeholder="contact.subject_ph" />
+            </div>
+            <div class="form-group">
+              <label for="message" data-i18n="contact.message">Message</label>
+              <textarea id="message" name="message" required placeholder="Tell us more..." data-i18n-placeholder="contact.message_ph"></textarea>
+            </div>
+            <button type="submit" class="btn submit-btn" data-i18n="contact.send">Send Message</button>
+          </form>
+        </div>
+
+        <div class="contact-info">
+          <div class="contact-card">
+            <h3>📍 <span data-i18n="contact.visit.title">Visit Us</span></h3>
+            <p data-i18n="contact.visit.addr">123 Faith Street<br>Community City, ST 12345</p>
+          </div>
+          <div class="contact-card">
+            <h3>📞 <span data-i18n="contact.call.title">Call Us</span></h3>
+            <p><a href="tel:+1234567890" data-i18n="contact.call.num">(123) 456-7890</a></p>
+          </div>
+          <div class="contact-card">
+            <h3>✉️ <span data-i18n="contact.email.title">Email Us</span></h3>
+            <p><a href="mailto:info@faithcenter.org" data-i18n="contact.email.addr">info@faithcenter.org</a></p>
+          </div>
+          <div class="contact-card">
+            <h3>⏰ <span data-i18n="contact.hours.title">Office Hours</span></h3>
+            <p data-i18n="contact.hours.value">Monday - Friday<br>9:00 AM - 5:00 PM</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <h3 data-i18n="footer.brand">Faith Community Center</h3>
+        <p data-i18n="footer.tag">Growing together in faith and love</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4 data-i18n="footer.quick">Quick Links</h4>
+          <ul>
+            <li><a href="#about" data-i18n="nav.about">About</a></li>
+            <li><a href="#meetings" data-i18n="nav.meetings">Meetings</a></li>
+            <li><a href="#events" data-i18n="nav.events">Events</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4 data-i18n="footer.getinvolved">Get Involved</h4>
+          <ul>
+            <li><a href="#scholarship" data-i18n="nav.scholarship">Scholarship</a></li>
+            <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+            <li><a href="#gallery" data-i18n="nav.gallery">Gallery</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4 data-i18n="footer.connect">Connect</h4>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook" class="social-icon">📘</a>
+            <a href="#" aria-label="Twitter" class="social-icon">🐦</a>
+            <a href="#" aria-label="Instagram" class="social-icon">📷</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> <span data-i18n="footer.copyright.name">Faith Community Center</span>. <span data-i18n="footer.copyright">All rights reserved.</span></p>
+      <p data-i18n="footer.built">Built with love and faith.</p>
+    </div>
+  </footer>
+
+  <script type="module">
+  // ---- Schedule ----
+  async function renderSchedule(){
+    const snap = await getDoc(doc(db, "content", "schedule"));
+    if (!snap.exists()) return;
+    const s = snap.data();
+    const map = [
+      { titleSel:'[data-i18n="meetings.sun.title"]', timeSel:'[data-i18n="meetings.sun.time"]', bodySel:'[data-i18n="meetings.sun.body"]', key:'sun' },
+      { titleSel:'[data-i18n="meetings.wed.title"]', timeSel:'[data-i18n="meetings.wed.time"]', bodySel:'[data-i18n="meetings.wed.body"]', key:'wed' },
+      { titleSel:'[data-i18n="meetings.fri.title"]', timeSel:'[data-i18n="meetings.fri.time"]', bodySel:'[data-i18n="meetings.fri.body"]', key:'fri' },
+      { titleSel:'[data-i18n="meetings.sat.title"]', timeSel:'[data-i18n="meetings.sat.time"]', bodySel:'[data-i18n="meetings.sat.body"]', key:'sat' }
+    ];
+    map.forEach(({titleSel,timeSel,bodySel,key})=>{
+      const cfg = s[key] || {};
+      if (cfg.title) document.querySelector(titleSel).textContent = cfg.title;
+      if (cfg.time)  document.querySelector(timeSel).textContent  = cfg.time;
+      if (cfg.body)  document.querySelector(bodySel).textContent  = cfg.body;
+    });
+  }
+
+  // ---- Hero ----
+  async function renderHero(){
+    const snap = await getDoc(doc(db, "content", "hero"));
+    if(snap.exists()){
+      const url = snap.data().url;
+      document.getElementById("home").style.backgroundImage =
+        `linear-gradient(135deg, rgba(102,126,234,0.85), rgba(118,75,162,0.85)), url('${url}')`;
+    }
+  }
+
+  // ---- Gallery ----
+  async function renderGallery(){
+    const wrap = document.querySelector("#gallery .gallery");
+    if(!wrap) return;
+    wrap.innerHTML = "";
+    const snaps = await getDocs(collection(db, "gallery"));
+    snaps.forEach(docSnap=>{
+      const g = docSnap.data();
+      const div = document.createElement("div");
+      div.className="gallery-item";
+      div.innerHTML = `<img src="${g.url}" alt="${g.caption||''}" loading="lazy">`;
+      wrap.appendChild(div);
+    });
+  }
+
+  renderSchedule();
+  renderHero();
+  renderGallery();
+</script>
+
+<script src="script.js"></script>
+<script src="dynamic.js"></script>
+</body>
+</html>

@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIVEK - Admin Panel (Protected)</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    
+    .login-box {
+      background: white;
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+    
+    .login-box h1 {
+      color: #667eea;
+      margin-bottom: 0.5rem;
+      font-size: 2rem;
+    }
+    
+    .login-box p {
+      color: #666;
+      margin-bottom: 2rem;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+    
+    label {
+      display: block;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+    
+    input[type="password"] {
+      width: 100%;
+      padding: 0.875rem;
+      border: 2px solid #e5e7eb;
+      border-radius: 10px;
+      font-size: 1rem;
+      transition: all 0.3s;
+    }
+    
+    input[type="password"]:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+    }
+    
+    .btn {
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    }
+    
+    .error {
+      color: #ef4444;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      display: none;
+    }
+    
+    .error.show {
+      display: block;
+    }
+    
+    #adminContent {
+      display: none;
+      width: 100%;
+      max-width: 1200px;
+    }
+    
+    .container {
+      background: white;
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    
+    .logout-btn {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      padding: 0.75rem 1.5rem;
+      background: #ef4444;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      z-index: 9999;
+    }
+    
+    h1 {
+      color: #667eea;
+      margin-bottom: 0.5rem;
+      font-size: 2.5rem;
+    }
+    
+    .subtitle {
+      color: #666;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+    }
+    
+    .tabs {
+      display: flex;
+      gap: 1rem;
+      border-bottom: 2px solid #e5e7eb;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    
+    .tab {
+      padding: 1rem 2rem;
+      background: none;
+      border: none;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #666;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: all 0.3s;
+    }
+    
+    .tab:hover { color: #667eea; }
+    .tab.active { color: #667eea; border-bottom-color: #667eea; }
+    
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: fadeIn 0.3s; }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .form-group { margin-bottom: 1.5rem; }
+    
+    label {
+      display: block;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+    
+    input, textarea {
+      width: 100%;
+      padding: 0.875rem;
+      border: 2px solid #e5e7eb;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: all 0.3s;
+    }
+    
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+    }
+    
+    textarea { min-height: 100px; resize: vertical; }
+    
+    .btn-primary {
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    }
+    
+    .btn-success { background: #10b981; }
+    .btn-danger { background: #ef4444; }
+    .btn-small { padding: 0.5rem 1rem; font-size: 0.875rem; }
+    
+    .item-card {
+      background: #f9fafb;
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      transition: all 0.3s;
+    }
+    
+    .item-card:hover {
+      border-color: #667eea;
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+    }
+    
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .item-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #667eea;
+    }
+    
+    .btn-group { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    
+    .alert {
+      padding: 1rem 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+    
+    .alert-info {
+      background: #dbeafe;
+      color: #1e40af;
+      border: 2px solid #3b82f6;
+    }
+    
+    .json-output {
+      background: #1e293b;
+      color: #e5e7eb;
+      padding: 1.5rem;
+      border-radius: 10px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      max-height: 400px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+    
+    @media (max-width: 768px) {
+      .container { padding: 1rem; }
+      .tabs { overflow-x: auto; }
+      .logout-btn { top: 1rem; right: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Login Form -->
+  <div class="login-box" id="loginBox">
+    <h1>🔐 Admin Login</h1>
+    <p>Enter password to access admin panel</p>
+    <form onsubmit="checkPassword(event)">
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="passwordInput" placeholder="Enter admin password" required>
+        <div class="error" id="errorMsg">❌ Incorrect password!</div>
+      </div>
+      <button type="submit" class="btn">Login</button>
+    </form>
+    <p style="margin-top: 2rem; font-size: 0.9rem; color: #999;">
+      💡 Default password: <code style="background: #f3f4f6; padding: 0.25rem 0.5rem; border-radius: 4px;">vivek2025</code>
+    </p>
+  </div>
+
+  <!-- Admin Content (Hidden until login) -->
+  <div id="adminContent">
+    <button class="logout-btn" onclick="logout()">🚪 Logout</button>
+    
+    <div class="container">
+      <h1>🎨 VIVEK Admin Panel</h1>
+      <p class="subtitle">Manage your website content easily</p>
+      
+      <div class="alert alert-info">
+        💡 <strong>Tip:</strong> After making changes, click "Export JSON" and save to content.json
+      </div>
+      
+      <div class="tabs">
+        <button class="tab active" data-tab="hero">Hero Section</button>
+        <button class="tab" data-tab="meetings">Meetings</button>
+        <button class="tab" data-tab="events">Events</button>
+        <button class="tab" data-tab="gallery">Gallery</button>
+        <button class="tab" data-tab="export">Export JSON</button>
+      </div>
+      
+      <!-- Hero Tab -->
+      <div class="tab-content active" id="hero">
+        <h2>Hero Section</h2>
+        <div class="form-group">
+          <label>Background Image URL</label>
+          <input type="text" id="heroImage" placeholder="tt.jpg" value="tt.jpg">
+        </div>
+        <div class="form-group">
+          <label>Title</label>
+          <input type="text" id="heroTitle" placeholder="VIVEK" value="VIVEK">
+        </div>
+        <div class="form-group">
+          <label>Subtitle</label>
+          <textarea id="heroSubtitle">Vivekananda Vedanta Centre 
+Born to be good, to do good.</textarea>
+        </div>
+      </div>
+      
+      <!-- Meetings Tab -->
+      <div class="tab-content" id="meetings">
+        <h2>Meetings Schedule</h2>
+        <div id="meetingsList"></div>
+        <button class="btn-primary" onclick="addMeeting()">+ Add Meeting</button>
+      </div>
+      
+      <!-- Events Tab -->
+      <div class="tab-content" id="events">
+        <h2>Upcoming Events</h2>
+        <div id="eventsList"></div>
+        <button class="btn-primary" onclick="addEvent()">+ Add Event</button>
+      </div>
+      
+      <!-- Gallery Tab -->
+      <div class="tab-content" id="gallery">
+        <h2>Gallery Images</h2>
+        <div id="galleryList"></div>
+        <button class="btn-primary" onclick="addGalleryItem()">+ Add Image</button>
+      </div>
+      
+      <!-- Export Tab -->
+      <div class="tab-content" id="export">
+        <h2>Export Your Content</h2>
+        <p style="margin-bottom: 1rem;">Copy this JSON and save to <strong>content.json</strong>:</p>
+        <div class="json-output" id="jsonOutput"></div>
+        <button class="btn-success btn-primary" onclick="copyJSON()" style="margin-top: 1rem;">📋 Copy</button>
+        <button class="btn-primary" onclick="downloadJSON()" style="margin-top: 1rem;">💾 Download</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // PASSWORD PROTECTION
+    const ADMIN_PASSWORD = "vivek2025"; // ⚠️ CHANGE THIS PASSWORD!
+    
+    function checkPassword(e) {
+      e.preventDefault();
+      const password = document.getElementById('passwordInput').value;
+      
+      if (password === ADMIN_PASSWORD) {
+        document.getElementById('loginBox').style.display = 'none';
+        document.getElementById('adminContent').style.display = 'block';
+        sessionStorage.setItem('adminLoggedIn', 'true');
+        initAdmin();
+      } else {
+        document.getElementById('errorMsg').classList.add('show');
+        setTimeout(() => {
+          document.getElementById('errorMsg').classList.remove('show');
+        }, 3000);
+      }
+    }
+    
+    function logout() {
+      sessionStorage.removeItem('adminLoggedIn');
+      location.reload();
+    }
+    
+    // Check if already logged in
+    if (sessionStorage.getItem('adminLoggedIn') === 'true') {
+      document.getElementById('loginBox').style.display = 'none';
+      document.getElementById('adminContent').style.display = 'block';
+      initAdmin();
+    }
+    
+    // REST OF ADMIN PANEL CODE
+    const data = {
+      hero: { backgroundImage: "tt.jpg", title: "VIVEK", subtitle: "Vivekananda Vedanta Centre \n Born to be good, to do good." },
+      meetings: [],
+      events: [],
+      gallery: []
+    };
+    
+    function initAdmin() {
+      // Load existing content
+      fetch('content.json')
+        .then(r => r.json())
+        .then(d => {
+          Object.assign(data, d);
+          renderAll();
+        })
+        .catch(() => renderAll());
+      
+      // Tab switching
+      document.querySelectorAll('.tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+          document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+          document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+          tab.classList.add('active');
+          document.getElementById(tab.dataset.tab).classList.add('active');
+          if (tab.dataset.tab === 'export') generateJSON();
+        });
+      });
+    }
+    
+    function renderAll() {
+      renderMeetings();
+      renderEvents();
+      renderGallery();
+    }
+    
+    function renderMeetings() {
+      const list = document.getElementById('meetingsList');
+      list.innerHTML = data.meetings.map((m, i) => `
+        <div class="item-card">
+          <div class="item-header">
+            <div class="item-title">${m.title}</div>
+            <div class="btn-group">
+              <button class="btn-primary btn-small" onclick="editMeeting(${i})">Edit</button>
+              <button class="btn-danger btn-small" onclick="deleteMeeting(${i})">Delete</button>
+            </div>
+          </div>
+          <p><strong>Time:</strong> ${m.time}</p>
+          <p>${m.description}</p>
+        </div>
+      `).join('');
+    }
+    
+    function addMeeting() {
+      const title = prompt("Meeting Title (English):");
+      if (!title) return;
+      data.meetings.push({
+        title: title,
+        title_bn: prompt("Title (Bangla):") || title,
+        time: prompt("Time:") || "TBD",
+        time_bn: prompt("Time (Bangla):") || "TBD",
+        description: prompt("Description:") || "",
+        description_bn: prompt("Description (Bangla):") || ""
+      });
+      renderMeetings();
+    }
+    
+    function editMeeting(i) {
+      const m = data.meetings[i];
+      m.title = prompt("Title:", m.title) || m.title;
+      m.time = prompt("Time:", m.time) || m.time;
+      m.description = prompt("Description:", m.description) || m.description;
+      renderMeetings();
+    }
+    
+    function deleteMeeting(i) {
+      if (confirm("Delete?")) {
+        data.meetings.splice(i, 1);
+        renderMeetings();
+      }
+    }
+    
+    function renderEvents() {
+      const list = document.getElementById('eventsList');
+      list.innerHTML = data.events.map((e, i) => `
+        <div class="item-card">
+          <div class="item-header">
+            <div class="item-title">${e.title}</div>
+            <div class="btn-group">
+              <button class="btn-primary btn-small" onclick="editEvent(${i})">Edit</button>
+              <button class="btn-danger btn-small" onclick="deleteEvent(${i})">Delete</button>
+            </div>
+          </div>
+          <p><strong>Date:</strong> ${e.date}</p>
+          <p>${e.description}</p>
+        </div>
+      `).join('');
+    }
+    
+    function addEvent() {
+      const title = prompt("Event Title:");
+      if (!title) return;
+      data.events.push({
+        date: prompt("Date:") || "TBD",
+        date_bn: prompt("Date (Bangla):") || "TBD",
+        title: title,
+        title_bn: prompt("Title (Bangla):") || title,
+        description: prompt("Description:") || "",
+        description_bn: prompt("Description (Bangla):") || ""
+      });
+      renderEvents();
+    }
+    
+    function editEvent(i) {
+      const e = data.events[i];
+      e.date = prompt("Date:", e.date) || e.date;
+      e.title = prompt("Title:", e.title) || e.title;
+      e.description = prompt("Description:", e.description) || e.description;
+      renderEvents();
+    }
+    
+    function deleteEvent(i) {
+      if (confirm("Delete?")) {
+        data.events.splice(i, 1);
+        renderEvents();
+      }
+    }
+    
+    function renderGallery() {
+      const list = document.getElementById('galleryList');
+      list.innerHTML = data.gallery.map((g, i) => `
+        <div class="item-card">
+          <div class="item-header">
+            <div class="item-title">${g.title}</div>
+            <div class="btn-group">
+              <button class="btn-primary btn-small" onclick="editGalleryItem(${i})">Edit</button>
+              <button class="btn-danger btn-small" onclick="deleteGalleryItem(${i})">Delete</button>
+            </div>
+          </div>
+          <p><strong>Image:</strong> ${g.image}</p>
+        </div>
+      `).join('');
+    }
+    
+    function addGalleryItem() {
+      const title = prompt("Image Title:");
+      if (!title) return;
+      data.gallery.push({
+        image: prompt("Image Path:") || "images/placeholder.jpg",
+        title: title,
+        title_bn: prompt("Title (Bangla):") || title
+      });
+      renderGallery();
+    }
+    
+    function editGalleryItem(i) {
+      const g = data.gallery[i];
+      g.image = prompt("Image Path:", g.image) || g.image;
+      g.title = prompt("Title:", g.title) || g.title;
+      renderGallery();
+    }
+    
+    function deleteGalleryItem(i) {
+      if (confirm("Delete?")) {
+        data.gallery.splice(i, 1);
+        renderGallery();
+      }
+    }
+    
+    function generateJSON() {
+      data.hero.backgroundImage = document.getElementById('heroImage').value;
+      data.hero.title = document.getElementById('heroTitle').value;
+      data.hero.subtitle = document.getElementById('heroSubtitle').value;
+      const json = JSON.stringify(data, null, 2);
+      document.getElementById('jsonOutput').textContent = json;
+    }
+    
+    function copyJSON() {
+      generateJSON();
+      const json = document.getElementById('jsonOutput').textContent;
+      navigator.clipboard.writeText(json).then(() => alert('✅ Copied!'));
+    }
+    
+    function downloadJSON() {
+      generateJSON();
+      const json = document.getElementById('jsonOutput').textContent;
+      const blob = new Blob([json], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'content.json';
+      a.click();
+    }
+  </script>
+</body>
+</html>
