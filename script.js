@@ -324,13 +324,13 @@ observeElements.forEach(el => {
       "contact.name":"নাম","contact.email":"ইমেইল","contact.subject":"বিষয়","contact.message":"বার্তা",
       "contact.name_ph":"আপনার পূর্ণ নাম","contact.email_ph":"your.email@example.com","contact.subject_ph":"আমরা কীভাবে সাহায্য করতে পারি?","contact.message_ph":"আরো জানান...",
       "contact.send":"বার্তা পাঠান",
-      "contact.visit.title":"আমাদের ঠিকানা","contact.visit.addr":"১২৩ ফেইথ স্ট্রিট\nকমিউনিটি সিটি, ST ১২৩৪৫",
-      "contact.call.title":"ফোন","contact.call.num":"(123) 456-7890",
-      "contact.email.title":"ইমেইল","contact.email.addr":"info@faithcenter.org",
+      "contact.visit.title":"আমাদের ঠিকানা","contact.visit.addr":"রামকৃষ্ণ মিশন, ঢাকা বাংলাদেশ ",
+      "contact.call.title":"ফোন","contact.call.num":"১১১১১১১১১১১",
+      "contact.email.title":"ইমেইল","contact.email.addr":"১১১১১১১১১১১১১",
       "contact.hours.title":"অফিস সময়","contact.hours.value":"সোমবার - শুক্রবার\nসকাল ৯টা - বিকাল ৫টা",
-      "footer.brand":"ফেইথ কমিউনিটি সেন্টার","footer.tag":"বিশ্বাস ও ভালবাসায় একসাথে বেড়ে উঠি",
+      "footer.brand":"বিবেকানন্দ বেদান্ত কেন্দ্র","footer.tag":"বিশ্বাস ও ভালবাসায় একসাথে বেড়ে উঠি",
       "footer.quick":"দ্রুত লিংক","footer.getinvolved":"যুক্ত হোন","footer.connect":"কানেক্ট",
-      "footer.copyright.name":"ফেইথ কমিউনিটি সেন্টার","footer.copyright":"সমস্ত অধিকার সংরক্ষিত।","footer.built":"ভালবাসা ও বিশ্বাসে নির্মিত।"
+      "footer.copyright.name":"বিবেক","footer.copyright":"সমস্ত অধিকার সংরক্ষিত।","footer.built":"ভালবাসা ও বিশ্বাসে নির্মিত।"
     }
   };
 
